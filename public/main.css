@@ -31,3 +31,8 @@ body {
 #content {
   font
 }
+
+.vote-form {
+  display: inline;
+  margin: 10px;
+}
