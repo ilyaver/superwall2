@@ -19,6 +19,14 @@
       
       <p><%= escape(post.body) %></p>
 
+        <% comments = Comment.all %>
+
+        <% comments.each do |comment| %>
+        <li>
+          <p> <%= escape(comment.body) %></p>
+        </li>
+        <% end %>
+
 
       <p>
         <strong>Votes: </strong><%= post.votes %>
@@ -28,6 +36,20 @@
         <form class="vote-form" action="/posts/<%= post.id%>/downvote" method="post">  
           <input type="submit" value="Downvote!">     
         </form>
+
+       <form class="delete-form" action="/posts/<%= post.id %>/delete" method="post">
+          <input type="submit" value="">
+        </form>
+
+
+      <form action="/comments" method="post">
+        <div> 
+          <textarea name="body"></textarea>
+          </div>
+          <div>
+            <input type="submit" value="comment"> 
+          </div>
+
       </p>
 
         

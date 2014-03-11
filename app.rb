@@ -8,12 +8,19 @@ set :app_file, __FILE__
 get '/' do
   posts = Post.reverse_order(:created_at).all
   erb :index, :locals => {:posts => posts}
+
 end
 
 post '/posts' do
   Post.create(:body => params[:body])
   redirect to('/')
 end
+
+post '/comments' do
+	  Comment.create(:body => params[:body])
+	  redirect to('/')
+end
+
 
 post '/posts/:id/upvote' do
 	post = Post.where(:id =>params[:id]).first
@@ -31,6 +38,15 @@ post '/posts/:id/downvote' do
 
 	redirect to('/')
 end
+
+post '/posts/:id/delete' do
+		post = Post.where(:id =>params[:id]).first
+		post.delete
+
+		redirect to('/') 
+end
+
+
 
 get '/todo' do
   erb :todo

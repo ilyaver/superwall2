@@ -36,3 +36,13 @@ body {
   display: inline;
   margin: 10px;
 }
+
+.delete-form input {
+  display: inline;
+  height: 38px;
+  width: 38px;
+  margin: 10px;
+  background: url('http://img505.imageshack.us/img505/3912/fgtexpgr6.gif');
+  border: 0px;
+
+}
